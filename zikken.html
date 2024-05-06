@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>音声再生アプリ</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    button {
+      font-size: 24px;
+      padding: 10px 20px;
+      margin-top: 20px;
+    }
+    img, video {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ごめんてアプリ</h1>
+  <button onclick="playAudioAndShowRandomContent()">再生</button>
+
+  <div id="contentContainer"></div>
+
+  <script>
+    function playAudioAndShowRandomContent() {
+      var audio = new Audio('gommente.wav');
+      audio.pause();
+      audio.currentTime = 0;
+      audio.play();
+
+      var randomNumber = Math.random();
+      var contentContainer = document.getElementById('contentContainer');
+
+      if (randomNumber < 0.1) {
+        contentContainer.innerHTML = '<video src="Menzcoachgeorge.mp4" autoplay></video>';
+      } else {
+        var imageNumber = Math.floor(Math.random() * 5) + 1;
+        var imagePath = 'f-img/f' + imageNumber + '.jpg';
+        contentContainer.innerHTML = '<img src="' + imagePath + '" alt="ランダムな画像">';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>音声再生アプリ</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    button {
+      font-size: 24px;
+      padding: 10px 20px;
+      margin-top: 20px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ごめんてアプリ</h1>
+  <button onclick="playAudioAndShowRandomImage()">再生</button>
+
+  <div>
+    <img id="randomImage" alt="ランダムな画像">
+  </div>
+
+  <script>
+    function playAudioAndShowRandomImage() {
+      var audio = new Audio('gommente.wav');
+      audio.play();
+
+      var randomNumber = Math.floor(Math.random() * 5) + 1;
+      var imagePath = 'f-img/f' + randomNumber + '.jpg';
+      document.getElementById('randomImage').src = imagePath;
+    }
+  </script>
+</body>
+</html>
